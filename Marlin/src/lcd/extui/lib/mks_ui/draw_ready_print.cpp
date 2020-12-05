@@ -211,11 +211,43 @@ void lv_draw_ready_print(void) {
 
   }
   else {
+    thermalManager.start_watching_hotend(0);
+    e1 = lv_label_create_empty(scr);
+    lv_obj_set_pos(e1, 20, 20);
+    #if HAS_MULTI_HOTEND
+      thermalManager.start_watching_hotend(1);
+      e2 = lv_label_create_empty(scr);
+      lv_obj_set_pos(e2, 20, 45);
+    #endif
+    #if HAS_HEATED_BED
+      thermalManager.start_watching_bed();
+      bed = lv_label_create_empty(scr);
+      lv_obj_set_pos(bed, 240, 20);
+    #endif
+
+    disp_temp_homepage();
+
     lv_big_button_create(scr, "F:/bmp_tool.bin", main_menu.tool, 20, 90, event_handler, ID_TOOL);
     lv_big_button_create(scr, "F:/bmp_set.bin", main_menu.set, 180, 90, event_handler, ID_SET);
     lv_big_button_create(scr, "F:/bmp_printing.bin", main_menu.print, 340, 90, event_handler, ID_PRINT);
   }
 }
+
+
+void disp_temp_homepage() {
+  sprintf(public_buf_l, "%s:  %d/%d", preheat_menu.ext1, (int)thermalManager.temp_hotend[0].celsius, (int)thermalManager.temp_hotend[0].target);
+  lv_label_set_text(e1, public_buf_l);
+  #if HAS_MULTI_HOTEND
+    sprintf_P(public_buf_l, PSTR("%s:  %d/%d"), preheat_menu.ext2, (int)thermalManager.temp_hotend[1].celsius, (int)thermalManager.temp_hotend[1].target);
+    lv_label_set_text(e2, public_buf_l);
+  #endif
+  #if HAS_HEATED_BED
+    sprintf(public_buf_l, "%s:  %d/%d", preheat_menu.hotbed, (int)thermalManager.temp_bed.celsius, (int)thermalManager.temp_bed.target);
+    lv_label_set_text(bed, public_buf_l);
+  #endif
+}
+
+
 
 void lv_clear_ready_print() {
   #if HAS_ROTARY_ENCODER

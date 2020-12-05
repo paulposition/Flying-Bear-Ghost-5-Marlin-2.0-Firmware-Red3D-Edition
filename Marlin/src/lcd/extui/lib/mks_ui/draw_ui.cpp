@@ -973,14 +973,10 @@ void GUI_RefreshPage() {
       }
       break;
     case PRINT_READY_UI:
-      /*
-      if (gCfgItems.display_style == 2) {
-        if (temps_update_flag) {
-          temps_update_flag = false;
-          disp_restro_state();
-        }
+     if (temps_update_flag) {
+        temps_update_flag = false;
+        disp_temp_homepage();
       }
-      */
       break;
 
     case PRINT_FILE_UI: break;
