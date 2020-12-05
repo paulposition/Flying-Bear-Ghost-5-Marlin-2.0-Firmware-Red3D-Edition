@@ -70,8 +70,8 @@ uint8_t printing_rate_update_flag;
 
 extern bool once_flag;
 extern uint8_t sel_id;
-extern uint8_t public_buf[512];
-extern uint8_t bmp_public_buf[17 * 1024];
+extern uint8_t public_buf[513];
+extern uint8_t bmp_public_buf[14 * 1024];
 extern lv_group_t *g;
 
 extern void LCD_IO_WriteData(uint16_t RegValue);
@@ -137,12 +137,12 @@ void gCfgItems_init() {
   gCfgItems.levelingPos[3][1] = Y_MAX_POS - 30;
   gCfgItems.levelingPos[4][0] = X_BED_SIZE / 2;
   gCfgItems.levelingPos[4][1] = Y_BED_SIZE / 2;
-  gCfgItems.cloud_enable  = true;
-  #if ENABLED(MKS_WIFI_MODULE)
+  gCfgItems.cloud_enable      = false;
+  //#if ENABLED(MKS_WIFI_MODULE)
     gCfgItems.wifi_mode_sel = STA_MODEL;
     gCfgItems.fileSysType   = FILE_SYS_SD;
     gCfgItems.wifi_type     = ESP_WIFI;
-  #endif
+  //#endif
   gCfgItems.filamentchange_load_length   = 200;
   gCfgItems.filamentchange_load_speed    = 1000;
   gCfgItems.filamentchange_unload_length = 200;
@@ -448,6 +448,7 @@ void titleText_cat(char *str, int strSize, char *addPart) {
 
 char *getDispText(int index) {
 
+  ZERO(public_buf_l);
 
   switch (disp_state_stack._disp_state[index]) {
     case PRINT_READY_UI:
@@ -676,7 +677,7 @@ char *creat_title_text() {
           }
         }
 
-        card.setIndex((gPicturePreviewStart + To_pre_view) + size * row + 8);
+        card.setIndex(gPicturePreviewStart + size * row + 8);
         SPI_TFT.setWindow(xpos_pixel, ypos_pixel + row, 200, 1);
 
         j = i = 0;
@@ -1047,12 +1048,11 @@ void GUI_RefreshPage() {
           temps_update_flag = false;
         }
         break;
+
+      case BIND_UI:
+        refresh_bind_ui();
+        break;
     #endif
-
-    case BIND_UI:
-      /*refresh_bind_ui();*/
-      break;
-
     case FILAMENTCHANGE_UI:
       if (temps_update_flag) {
         temps_update_flag = false;
@@ -1164,14 +1164,16 @@ void clear_cur_ui() {
     #if ENABLED(MKS_WIFI_MODULE)
       case WIFI_UI:                   lv_clear_wifi(); break;
     #endif
-    case MORE_UI:                     /* Clear_more(); */ break;
+    case MORE_UI:                     lv_clear_more(); break;
     case FILETRANSFER_UI:             /* Clear_fileTransfer(); */ break;
     case DIALOG_UI:                   lv_clear_dialog(); break;
     case FILETRANSFERSTATE_UI:        /* Clear_WifiFileTransferdialog(); */ break;
     case PRINT_MORE_UI:               /* Clear_Printmore(); */ break;
     case FILAMENTCHANGE_UI:           lv_clear_filament_change(); break;
     case LEVELING_UI:                 lv_clear_manualLevel(); break;
-    case BIND_UI:                     /* Clear_Bind(); */ break;
+    #if ENABLED(MKS_WIFI_MODULE)
+      case BIND_UI:                   lv_clear_cloud_bind(); break;
+    #endif
     #if HAS_BED_PROBE
       case NOZZLE_PROBE_OFFSET_UI:    lv_clear_auto_level_offset_settings(); break;
     #endif
@@ -1271,10 +1273,12 @@ void draw_return_ui() {
         case WIFI_UI:                   lv_draw_wifi(); break;
       #endif
       case MORE_UI:                     /* draw_More(); */ break;
-      case PRINT_MORE_UI:               /* draw_printmore(); */ break;
+      case PRINT_MORE_UI:               lv_draw_more(); break;
       case FILAMENTCHANGE_UI:           lv_draw_filament_change(); break;
       case LEVELING_UI:                 lv_draw_manualLevel(); break;
-      case BIND_UI:                     /* draw_bind(); */ break;
+      #if ENABLED(MKS_WIFI_MODULE)
+        case BIND_UI:                   lv_draw_cloud_bind(); break;
+      #endif
       #if HAS_BED_PROBE
         case NOZZLE_PROBE_OFFSET_UI:    lv_draw_auto_level_offset_settings(); break;
       #endif
