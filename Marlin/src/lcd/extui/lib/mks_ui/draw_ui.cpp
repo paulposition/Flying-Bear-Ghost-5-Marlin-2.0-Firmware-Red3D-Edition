@@ -90,8 +90,9 @@ lv_point_t line_points[4][2] = {
   {{PARA_UI_POS_X, PARA_UI_POS_Y*3 + PARA_UI_SIZE_Y}, {TFT_WIDTH, PARA_UI_POS_Y*3 + PARA_UI_SIZE_Y}},
   {{PARA_UI_POS_X, PARA_UI_POS_Y*4 + PARA_UI_SIZE_Y}, {TFT_WIDTH, PARA_UI_POS_Y*4 + PARA_UI_SIZE_Y}}
 };
-void gCfgItems_init() {
-  gCfgItems.multiple_language = MULTI_LANGUAGE_ENABLE;
+
+void gCfgItems_defaultValues() {
+   gCfgItems.multiple_language = MULTI_LANGUAGE_ENABLE;
   #if 1 // LCD_LANGUAGE == en
     gCfgItems.language = LANG_ENGLISH;
   #elif LCD_LANGUAGE == zh_CN
@@ -127,29 +128,88 @@ void gCfgItems_init() {
   gCfgItems.pausePosX         = -1;
   gCfgItems.pausePosY         = -1;
   gCfgItems.pausePosZ         = 5;
+  // gCfgItems.levelingPos[0][0] = X_MIN_POS + 30;
+  // gCfgItems.levelingPos[0][1] = Y_MIN_POS + 30;
+  // gCfgItems.levelingPos[1][0] = X_MAX_POS - 30;
+  // gCfgItems.levelingPos[1][1] = Y_MIN_POS + 30;
+  // gCfgItems.levelingPos[2][0] = X_MAX_POS - 30;
+  // gCfgItems.levelingPos[2][1] = Y_MAX_POS - 30;
+  // gCfgItems.levelingPos[3][0] = X_MIN_POS + 30;
+  // gCfgItems.levelingPos[3][1] = Y_MAX_POS - 30;
+  // gCfgItems.levelingPos[4][0] = X_BED_SIZE / 2;
+  // gCfgItems.levelingPos[4][1] = Y_BED_SIZE / 2;
+
   gCfgItems.levelingPos[0][0] = X_MIN_POS + 30;
   gCfgItems.levelingPos[0][1] = Y_MIN_POS + 30;
-  gCfgItems.levelingPos[1][0] = X_MAX_POS - 30;
+  gCfgItems.levelingPos[1][0] = X_BED_SIZE / 2;
   gCfgItems.levelingPos[1][1] = Y_MIN_POS + 30;
   gCfgItems.levelingPos[2][0] = X_MAX_POS - 30;
-  gCfgItems.levelingPos[2][1] = Y_MAX_POS - 30;
+  gCfgItems.levelingPos[2][1] = Y_MIN_POS + 30;
   gCfgItems.levelingPos[3][0] = X_MIN_POS + 30;
-  gCfgItems.levelingPos[3][1] = Y_MAX_POS - 30;
+  gCfgItems.levelingPos[3][1] = Y_BED_SIZE / 2;
   gCfgItems.levelingPos[4][0] = X_BED_SIZE / 2;
   gCfgItems.levelingPos[4][1] = Y_BED_SIZE / 2;
+  gCfgItems.levelingPos[5][0] = X_MAX_POS - 30;
+  gCfgItems.levelingPos[5][1] = Y_BED_SIZE / 2;
+  gCfgItems.levelingPos[6][0] = X_MIN_POS + 30;
+  gCfgItems.levelingPos[6][1] = Y_MAX_POS - 30;
+  gCfgItems.levelingPos[7][0] = X_BED_SIZE / 2;
+  gCfgItems.levelingPos[7][1] = Y_MAX_POS - 30;
+  gCfgItems.levelingPos[8][0] = X_MAX_POS - 30;
+  gCfgItems.levelingPos[8][1] = Y_MAX_POS - 30;
+
+
+
   gCfgItems.cloud_enable      = false;
   //#if ENABLED(MKS_WIFI_MODULE)
     gCfgItems.wifi_mode_sel = STA_MODEL;
     gCfgItems.fileSysType   = FILE_SYS_SD;
     gCfgItems.wifi_type     = ESP_WIFI;
   //#endif
-  gCfgItems.filamentchange_load_length   = 200;
-  gCfgItems.filamentchange_load_speed    = 1000;
-  gCfgItems.filamentchange_unload_length = 200;
-  gCfgItems.filamentchange_unload_speed  = 1000;
+  // gCfgItems.filamentchange_load_length   = 200;
+  // gCfgItems.filamentchange_load_speed    = 1000;
+  // gCfgItems.filamentchange_unload_length = 200;
+  // gCfgItems.filamentchange_unload_speed  = 1000;
+  // gCfgItems.filament_limit_temper        = 200;
+  gCfgItems.filamentchange_load_length   = 700;
+  gCfgItems.filamentchange_load_speed    = 750;
+  gCfgItems.filamentchange_unload_length = 700;
+  gCfgItems.filamentchange_unload_speed  = 750;
   gCfgItems.filament_limit_temper        = 200;
 
   gCfgItems.encoder_enable = true;
+}
+
+void gCfgItems_resetToFactory() {
+ 
+  gCfgItems_defaultValues();
+
+  gCfgItems.spi_flash_flag = FLASH_INF_VALID_FLAG;
+  W25QXX.SPI_FLASH_SectorErase(VAR_INF_ADDR);
+  W25QXX.SPI_FLASH_BufferWrite((uint8_t *)&gCfgItems, VAR_INF_ADDR, sizeof(gCfgItems));
+  //init gcode command
+  W25QXX.SPI_FLASH_BufferWrite((uint8_t *)&custom_gcode_command[0], AUTO_LEVELING_COMMAND_ADDR, 100);
+  W25QXX.SPI_FLASH_BufferWrite((uint8_t *)&custom_gcode_command[1], OTHERS_COMMAND_ADDR_1, 100);
+  W25QXX.SPI_FLASH_BufferWrite((uint8_t *)&custom_gcode_command[2], OTHERS_COMMAND_ADDR_2, 100);
+  W25QXX.SPI_FLASH_BufferWrite((uint8_t *)&custom_gcode_command[3], OTHERS_COMMAND_ADDR_3, 100);
+  W25QXX.SPI_FLASH_BufferWrite((uint8_t *)&custom_gcode_command[4], OTHERS_COMMAND_ADDR_4, 100);
+
+  const byte rot = (TFT_ROTATION & TFT_ROTATE_180) ? 0xEE : 0x00;
+  if (gCfgItems.disp_rotation_180 != rot) {
+    gCfgItems.disp_rotation_180 = rot;
+    update_spi_flash();
+  }
+  uiCfg.F[0] = 'N';
+  uiCfg.F[1] = 'A';
+  uiCfg.F[2] = 'N';
+  uiCfg.F[3] = 'O';
+  W25QXX.SPI_FLASH_BlockErase(REFLSHE_FLGA_ADD + 32 - 64*1024);
+  W25QXX.SPI_FLASH_BufferWrite(uiCfg.F,REFLSHE_FLGA_ADD,4);
+}
+
+void gCfgItems_init() {
+ 
+  gCfgItems_defaultValues();
 
   W25QXX.SPI_FLASH_BufferRead((uint8_t *)&gCfgItems.spi_flash_flag, VAR_INF_ADDR, sizeof(gCfgItems.spi_flash_flag));
   if (gCfgItems.spi_flash_flag == FLASH_INF_VALID_FLAG) {
@@ -1520,6 +1580,15 @@ lv_obj_t* lv_big_button_create(lv_obj_t *par, const char *img, const char *text,
     lv_group_add_obj(g, btn);
   return btn;
 }
+
+lv_obj_t* lv_medium_button_create(lv_obj_t *par, const char *img, lv_coord_t x, lv_coord_t y, lv_event_cb_t cb, const int id) {
+  lv_obj_t *btn = lv_imgbtn_create(par, img, cb, id);
+  lv_obj_set_pos(btn, x, y);
+  if (TERN0(HAS_ROTARY_ENCODER, gCfgItems.encoder_enable))
+    lv_group_add_obj(g, btn);
+  return btn;
+}
+
 
 lv_obj_t* lv_screen_menu_item(lv_obj_t *par, const char *text, lv_coord_t x, lv_coord_t y, lv_event_cb_t cb, const int id, const int index, bool drawArrow) {
   lv_obj_t *btn = lv_btn_create(par, nullptr);   /*Add a button the current screen*/

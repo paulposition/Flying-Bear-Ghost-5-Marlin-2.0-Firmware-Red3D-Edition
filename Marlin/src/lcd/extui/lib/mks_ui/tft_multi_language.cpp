@@ -947,6 +947,10 @@ void disp_language_init() {
       leveling_menu.position3 = LEVELING_POINT3_TEXT_CN;
       leveling_menu.position4 = LEVELING_POINT4_TEXT_CN;
       leveling_menu.position5 = LEVELING_POINT5_TEXT_CN;
+      leveling_menu.position6 = LEVELING_POINT6_TEXT_CN;
+      leveling_menu.position7 = LEVELING_POINT7_TEXT_CN;
+      leveling_menu.position8 = LEVELING_POINT8_TEXT_CN;
+      leveling_menu.position9 = LEVELING_POINT9_TEXT_CN;
       //
       set_menu.title        = TITLE_SET_CN;
       set_menu.filesys      = FILESYS_TEXT_CN;
@@ -1201,6 +1205,10 @@ void disp_language_init() {
             leveling_menu.position3 = LEVELING_POINT3_TEXT_T_CN;
             leveling_menu.position4 = LEVELING_POINT4_TEXT_T_CN;
             leveling_menu.position5 = LEVELING_POINT5_TEXT_T_CN;
+            leveling_menu.position6 = LEVELING_POINT6_TEXT_T_CN;
+            leveling_menu.position7 = LEVELING_POINT7_TEXT_T_CN;
+            leveling_menu.position8 = LEVELING_POINT8_TEXT_T_CN;
+            leveling_menu.position9 = LEVELING_POINT9_TEXT_T_CN;
             //
             set_menu.title        = TITLE_SET_T_CN;
             set_menu.filesys      = FILESYS_TEXT_T_CN;
@@ -1444,6 +1452,10 @@ void disp_language_init() {
             leveling_menu.position3 = LEVELING_POINT3_TEXT_EN;
             leveling_menu.position4 = LEVELING_POINT4_TEXT_EN;
             leveling_menu.position5 = LEVELING_POINT5_TEXT_EN;
+            leveling_menu.position6 = LEVELING_POINT6_TEXT_EN;
+            leveling_menu.position7 = LEVELING_POINT7_TEXT_EN;
+            leveling_menu.position8 = LEVELING_POINT8_TEXT_EN;
+            leveling_menu.position9 = LEVELING_POINT9_TEXT_EN;
             //
             set_menu.title        = TITLE_SET_EN;
             set_menu.filesys      = FILESYS_TEXT_EN;
@@ -1684,6 +1696,10 @@ void disp_language_init() {
             leveling_menu.position3 = LEVELING_POINT3_TEXT_RU;
             leveling_menu.position4 = LEVELING_POINT4_TEXT_RU;
             leveling_menu.position5 = LEVELING_POINT5_TEXT_RU;
+            leveling_menu.position6 = LEVELING_POINT6_TEXT_RU;
+            leveling_menu.position7 = LEVELING_POINT7_TEXT_RU;
+            leveling_menu.position8 = LEVELING_POINT8_TEXT_RU;
+            leveling_menu.position9 = LEVELING_POINT9_TEXT_RU;
             //
             set_menu.title        = TITLE_SET_RU;
             set_menu.filesys      = FILESYS_TEXT_RU;
@@ -2023,6 +2039,10 @@ void disp_language_init() {
             leveling_menu.position3 = LEVELING_POINT3_TEXT_SP;
             leveling_menu.position4 = LEVELING_POINT4_TEXT_SP;
             leveling_menu.position5 = LEVELING_POINT5_TEXT_SP;
+            leveling_menu.position6 = LEVELING_POINT6_TEXT_SP;
+            leveling_menu.position7 = LEVELING_POINT7_TEXT_SP;
+            leveling_menu.position8 = LEVELING_POINT8_TEXT_SP;
+            leveling_menu.position9 = LEVELING_POINT9_TEXT_SP;
             //
             set_menu.title        = TITLE_SET_SP;
             set_menu.filesys      = FILESYS_TEXT_SP;
@@ -2264,6 +2284,10 @@ void disp_language_init() {
           leveling_menu.position3 = LEVELING_POINT3_TEXT_FR;
           leveling_menu.position4 = LEVELING_POINT4_TEXT_FR;
           leveling_menu.position5 = LEVELING_POINT5_TEXT_FR;
+          leveling_menu.position6 = LEVELING_POINT6_TEXT_FR;
+          leveling_menu.position7 = LEVELING_POINT7_TEXT_FR;
+          leveling_menu.position8 = LEVELING_POINT8_TEXT_FR;
+          leveling_menu.position9 = LEVELING_POINT9_TEXT_FR;
           //
           set_menu.title        = TITLE_SET_FR;
           set_menu.filesys      = FILESYS_TEXT_FR;
@@ -2507,6 +2531,10 @@ void disp_language_init() {
           leveling_menu.position3 = LEVELING_POINT3_TEXT_IT;
           leveling_menu.position4 = LEVELING_POINT4_TEXT_IT;
           leveling_menu.position5 = LEVELING_POINT5_TEXT_IT;
+          leveling_menu.position6 = LEVELING_POINT6_TEXT_IT;
+          leveling_menu.position7 = LEVELING_POINT7_TEXT_IT;
+          leveling_menu.position8 = LEVELING_POINT8_TEXT_IT;
+          leveling_menu.position9 = LEVELING_POINT9_TEXT_IT;
           //
           set_menu.title        = TITLE_SET_IT;
           set_menu.filesys      = FILESYS_TEXT_IT;
@@ -2748,6 +2776,10 @@ void disp_language_init() {
       leveling_menu.position3 = LEVELING_POINT3_TEXT_EN;
       leveling_menu.position4 = LEVELING_POINT4_TEXT_EN;
       leveling_menu.position5 = LEVELING_POINT5_TEXT_EN;
+      leveling_menu.position6 = LEVELING_POINT6_TEXT_EN;
+      leveling_menu.position7 = LEVELING_POINT7_TEXT_EN;
+      leveling_menu.position8 = LEVELING_POINT8_TEXT_EN;
+      leveling_menu.position9 = LEVELING_POINT9_TEXT_EN;
       //
       set_menu.title        = TITLE_SET_EN;
       set_menu.filesys      = FILESYS_TEXT_EN;

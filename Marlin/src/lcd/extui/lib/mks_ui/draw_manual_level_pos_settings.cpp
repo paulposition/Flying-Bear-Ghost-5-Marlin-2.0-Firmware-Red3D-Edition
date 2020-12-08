@@ -44,6 +44,14 @@ enum {
   ID_MANUAL_POS_Y4,
   ID_MANUAL_POS_X5,
   ID_MANUAL_POS_Y5,
+  ID_MANUAL_POS_X6,
+  ID_MANUAL_POS_Y6,
+  ID_MANUAL_POS_X7,
+  ID_MANUAL_POS_Y7,
+  ID_MANUAL_POS_X8,
+  ID_MANUAL_POS_Y8,
+  ID_MANUAL_POS_X9,
+  ID_MANUAL_POS_Y9,
   ID_MANUAL_POS_DOWN,
   ID_MANUAL_POS_UP
 };
@@ -97,7 +105,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       lv_draw_number_key();
       break;
     case ID_MANUAL_POS_X5:
-      value = level_pos_y5;
+      value = level_pos_x5;
       lv_clear_manual_level_pos_settings();
       lv_draw_number_key();
       break;
@@ -106,13 +114,48 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       lv_clear_manual_level_pos_settings();
       lv_draw_number_key();
       break;
+    case ID_MANUAL_POS_X6:
+      value = level_pos_x6;
+      lv_clear_manual_level_pos_settings();
+      lv_draw_number_key();
+      break;
+    case ID_MANUAL_POS_Y6:
+      value = level_pos_y6;
+      lv_clear_manual_level_pos_settings();
+      lv_draw_number_key();
+      break;
+    case ID_MANUAL_POS_X7:
+      value = level_pos_x7;
+      lv_clear_manual_level_pos_settings();
+      lv_draw_number_key();
+      break;
+    case ID_MANUAL_POS_Y8:
+      value = level_pos_y8;
+      lv_clear_manual_level_pos_settings();
+      lv_draw_number_key();
+      break;
+    case ID_MANUAL_POS_X8:
+      value = level_pos_x8;
+      lv_clear_manual_level_pos_settings();
+      lv_draw_number_key();
+      break;
+    case ID_MANUAL_POS_Y9:
+      value = level_pos_y9;
+      lv_clear_manual_level_pos_settings();
+      lv_draw_number_key();
+      break;
+    case ID_MANUAL_POS_X9:
+      value = level_pos_x9;
+      lv_clear_manual_level_pos_settings();
+      lv_draw_number_key();
+      break;
     case ID_MANUAL_POS_UP:
-      uiCfg.para_ui_page = 0;
+      uiCfg.para_ui_page = uiCfg.para_ui_page - 1;
       lv_clear_manual_level_pos_settings();
       lv_draw_manual_level_pos_settings();
       break;
     case ID_MANUAL_POS_DOWN:
-      uiCfg.para_ui_page = 1;
+      uiCfg.para_ui_page = uiCfg.para_ui_page + 1;
       lv_clear_manual_level_pos_settings();
       lv_draw_manual_level_pos_settings();
       break;
@@ -124,7 +167,7 @@ void lv_draw_manual_level_pos_settings(void) {
 
   scr = lv_screen_create(MANUAL_LEVELING_POSIGION_UI, machine_menu.LevelingParaConfTitle);
 
-  if (uiCfg.para_ui_page != 1) {
+  if (uiCfg.para_ui_page == 0) {
     sprintf_P(public_buf_l, PSTR("%d"), gCfgItems.levelingPos[0][0]);
     sprintf_P(buf2, PSTR("%d"), gCfgItems.levelingPos[0][1]);
     lv_screen_menu_item_2_edit(scr, leveling_menu.position1, PARA_UI_POS_X, PARA_UI_POS_Y, event_handler, ID_MANUAL_POS_Y1, 0, buf2, ID_MANUAL_POS_X1, public_buf_l);
@@ -143,10 +186,30 @@ void lv_draw_manual_level_pos_settings(void) {
 
     lv_big_button_create(scr, "F:/bmp_back70x40.bin", machine_menu.next, PARA_UI_TURN_PAGE_POS_X, PARA_UI_TURN_PAGE_POS_Y, event_handler, ID_MANUAL_POS_DOWN, true);
   }
-  else {
+  if (uiCfg.para_ui_page == 1) {
     sprintf_P(public_buf_l, PSTR("%d"), gCfgItems.levelingPos[4][0]);
     sprintf_P(buf2, PSTR("%d"), gCfgItems.levelingPos[4][1]);
-    lv_screen_menu_item_2_edit(scr, leveling_menu.position4, PARA_UI_POS_X, PARA_UI_POS_Y, event_handler, ID_MANUAL_POS_Y5, 0, buf2, ID_MANUAL_POS_X5, public_buf_l);
+    lv_screen_menu_item_2_edit(scr, leveling_menu.position5, PARA_UI_POS_X, PARA_UI_POS_Y, event_handler, ID_MANUAL_POS_Y5, 0, buf2, ID_MANUAL_POS_X5, public_buf_l);
+
+    sprintf_P(public_buf_l, PSTR("%d"), gCfgItems.levelingPos[5][0]);
+    sprintf_P(buf2, PSTR("%d"), gCfgItems.levelingPos[5][1]);
+    lv_screen_menu_item_2_edit(scr, leveling_menu.position6, PARA_UI_POS_X, PARA_UI_POS_Y * 2, event_handler, ID_MANUAL_POS_Y6, 1, buf2, ID_MANUAL_POS_X6, public_buf_l);
+
+    sprintf_P(public_buf_l, PSTR("%d"), gCfgItems.levelingPos[6][0]);
+    sprintf_P(buf2, PSTR("%d"), gCfgItems.levelingPos[6][1]);
+    lv_screen_menu_item_2_edit(scr, leveling_menu.position7, PARA_UI_POS_X, PARA_UI_POS_Y * 3, event_handler, ID_MANUAL_POS_Y7, 2, buf2, ID_MANUAL_POS_X7, public_buf_l);
+
+    sprintf_P(public_buf_l, PSTR("%d"), gCfgItems.levelingPos[7][0]);
+    sprintf_P(buf2, PSTR("%d"), gCfgItems.levelingPos[7][1]);
+    lv_screen_menu_item_2_edit(scr, leveling_menu.position8, PARA_UI_POS_X, PARA_UI_POS_Y * 4, event_handler, ID_MANUAL_POS_Y8, 3, buf2, ID_MANUAL_POS_X8, public_buf_l);
+
+    lv_big_button_create(scr, "F:/bmp_back70x40.bin", machine_menu.next, PARA_UI_TURN_PAGE_POS_X, PARA_UI_TURN_PAGE_POS_Y, event_handler, ID_MANUAL_POS_DOWN, true);
+  //  lv_big_button_create(scr, "F:/bmp_back70x40.bin", machine_menu.previous, PARA_UI_TURN1_PAGE_POS_X, PARA_UI_TURN1_PAGE_POS_Y, event_handler, ID_MANUAL_POS_UP, true);
+  }
+  if (uiCfg.para_ui_page == 2) {
+    sprintf_P(public_buf_l, PSTR("%d"), gCfgItems.levelingPos[8][0]);
+    sprintf_P(buf2, PSTR("%d"), gCfgItems.levelingPos[8][1]);
+    lv_screen_menu_item_2_edit(scr, leveling_menu.position9, PARA_UI_POS_X, PARA_UI_POS_Y, event_handler, ID_MANUAL_POS_Y9, 0, buf2, ID_MANUAL_POS_X9, public_buf_l);
 
     lv_big_button_create(scr, "F:/bmp_back70x40.bin", machine_menu.previous, PARA_UI_TURN_PAGE_POS_X, PARA_UI_TURN_PAGE_POS_Y, event_handler, ID_MANUAL_POS_UP, true);
   }

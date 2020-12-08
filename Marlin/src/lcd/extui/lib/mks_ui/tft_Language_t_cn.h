@@ -320,6 +320,10 @@
 #define LEVELING_POINT3_TEXT_T_CN       "第三點"
 #define LEVELING_POINT4_TEXT_T_CN       "第四點"
 #define LEVELING_POINT5_TEXT_T_CN       "第五點"
+#define LEVELING_POINT6_TEXT_T_CN       "第六"
+#define LEVELING_POINT7_TEXT_T_CN       "第七"
+#define LEVELING_POINT8_TEXT_T_CN       "第八"
+#define LEVELING_POINT9_TEXT_T_CN       "第九"
 
 #define FILESYS_TEXT_T_CN               "文件系統"
 #define WIFI_TEXT_T_CN                  "WIFI"

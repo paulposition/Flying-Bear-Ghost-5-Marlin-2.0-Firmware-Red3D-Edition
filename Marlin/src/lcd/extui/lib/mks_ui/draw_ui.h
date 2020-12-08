@@ -29,7 +29,7 @@
 // the colors of the last MKS Ui
 #undef LV_COLOR_BACKGROUND
 // #define LV_COLOR_BACKGROUND LV_COLOR_MAKE(0x1A, 0x1A, 0x1A) // LV_COLOR_MAKE(0x00, 0x00, 0x00)
-#define LV_COLOR_BACKGROUND LV_COLOR_MAKE(0x19, 0x31, 0x4A) // LV_COLOR_MAKE(0x00, 0x00, 0x00)
+#define LV_COLOR_BACKGROUND LV_COLOR_MAKE(0x10, 0x20, 0x31) // LV_COLOR_MAKE(0x00, 0x00, 0x00)
 #define TFT_LV_PARA_BACK_BODY_COLOR  LV_COLOR_MAKE(0x4A, 0x52, 0xFF)
 
 #include "tft_lvgl_configuration.h"
@@ -113,6 +113,9 @@
   #define INTERVAL_V          2   // TFT_screen.gap_v // 2
   #define BTN_X_PIXEL       117   // TFT_screen.btn_x_pixel
   #define BTN_Y_PIXEL       140   // TFT_screen.btn_y_pixel
+  #define LEVELLING_BTN_SIZE  70   
+  #define LEVELLING_BTN_MARGIN 35   
+  #define LEVELLING_BTN_GUTTER  20   
 
   #define SIMPLE_FIRST_PAGE_GRAP   30
 
@@ -146,6 +149,9 @@
 
   #define PARA_UI_TURN_PAGE_POS_X   320
   #define PARA_UI_TURN_PAGE_POS_Y   270
+
+  #define PARA_UI_TURN1_PAGE_POS_X   240
+  #define PARA_UI_TURN1_PAGE_POS_Y   270
 
   #define PARA_UI_VALUE_SIZE_X      370
   #define PARA_UI_VALUE_POS_X       400
@@ -196,7 +202,7 @@ typedef struct {
   uint8_t wifi_type;
   bool  cloud_enable;
   bool  encoder_enable;
-  int   levelingPos[5][2];
+  int   levelingPos[9][2];
   int   filamentchange_load_length;
   int   filamentchange_load_speed;
   int   filamentchange_unload_length;
@@ -213,7 +219,7 @@ typedef struct {
           curSprayerChoose:3,
           stepHeat:4;
   uint8_t leveling_first_time:1,
-          para_ui_page:1,
+          para_ui_page:2,
           configWifi:1,
           command_send:1,
           filament_load_heat_flg:1,
@@ -391,6 +397,14 @@ typedef enum {
   level_pos_y4,
   level_pos_x5,
   level_pos_y5,
+  level_pos_x6,
+  level_pos_y6,
+  level_pos_x7,
+  level_pos_y7,
+  level_pos_x8,
+  level_pos_y8,
+  level_pos_x9,
+  level_pos_y9,
   #if HAS_BED_PROBE
     x_offset,
     y_offset,
@@ -442,6 +456,7 @@ extern lv_style_t style_btn_rel;
 extern lv_point_t line_points[4][2];
 
 extern void gCfgItems_init();
+extern void gCfgItems_resetToFactory();
 extern void ui_cfg_init();
 extern void tft_style_init();
 extern char *creat_title_text(void);
@@ -525,6 +540,9 @@ lv_obj_t* lv_imgbtn_create(lv_obj_t *par, const char *img, lv_coord_t x, lv_coor
 
 // Create a big image button with a label, follow the LVGL UI standard.
 lv_obj_t* lv_big_button_create(lv_obj_t *par, const char *img, const char *text, lv_coord_t x, lv_coord_t y, lv_event_cb_t cb, const int id, bool centerLabel = false);
+
+// Create a medium image button.
+lv_obj_t* lv_medium_button_create(lv_obj_t *par, const char *img, lv_coord_t x, lv_coord_t y, lv_event_cb_t cb, const int id);
 
 // Create a menu item, follow the LVGL UI standard.
 lv_obj_t* lv_screen_menu_item(lv_obj_t *par, const char *text, lv_coord_t x, lv_coord_t y, lv_event_cb_t cb, const int id, const int index, bool drawArrow = true);

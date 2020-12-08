@@ -1,3 +1,39 @@
+# Flying Bear Ghost 5 (Marlin 2.0 Firmware)
+
+
+## ** Work in progress, firmware is fully functional and under testing every day, but try it at your own risk ** ##
+
+
+
+
+## Changes  (in random order)
+* Default configured for 4xTMC2209 (STANDALONE; NO UART)
+* FAN_MIN_PWM is set to 64. Now the model blower works from 1% to 100%, and not from ~ 20% to 100% as before.
+* Enabled  diagonal movements when going home (XY)
+* Increased resolution of multi-axis moves (ADAPTIVE_STEP_SMOOTHING)
+* Enabled Linear Pressure Control and S-Curve Acceleration LIN_ADVANCE EXPERIMENTAL_SCURVE (Set to 0, to calibrate: [Linear Advance | Marlin Firmware](https://marlinfw.org/docs/features/lin_advance.html)=. (applicable with UART Driver)
+* Increased RX_BUFFER_SIZE
+* Trinamic's UART mode disabled 
+* Enabled square wave stepping (SQUARE_WAVE_STEPPING)
+* Disabled all Volumetric extrusion options
+* Changed PID standard Values and enabled PID  for the Bed  (Remember to calibrate yours)
+* BLTouch Disabled
+* Changed pre-heating presets to PETG (235/75) and  PLA (210/60)
+* Wifi is working with standard MksWifi.Bin
+* Enabled resume printing after power outage
+* Added menu voice to initialise user setting inside TFT35 
+
+* PDS file to export all custom images in one click
+* Custom assets conversion (png -> bin) done when build building firmware
+
+## graphic preview without texts ()
+
+<img  width=175 src="custom_graphics/preview.jpg" />
+
+
+
+
+
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)

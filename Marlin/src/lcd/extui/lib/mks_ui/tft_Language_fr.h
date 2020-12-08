@@ -88,7 +88,11 @@
 #define LEVELING_POINT2_TEXT_FR       "Seconde"
 #define LEVELING_POINT3_TEXT_FR       "Troisième"
 #define LEVELING_POINT4_TEXT_FR       "Quatrième"
-#define LEVELING_POINT5_TEXT_FR       "Cinquième"
+#define LEVELING_POINT5_TEXT_FR       "Sixième"
+#define LEVELING_POINT6_TEXT_FR       "Cinquième"
+#define LEVELING_POINT7_TEXT_FR       "Septième"
+#define LEVELING_POINT8_TEXT_FR       "Huitième"
+#define LEVELING_POINT9_TEXT_FR       "Neuvième"
 
 #define FILESYS_TEXT_FR               "Fichier"
 #define WIFI_TEXT_FR                  "WiFi"

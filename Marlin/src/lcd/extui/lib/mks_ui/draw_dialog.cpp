@@ -163,6 +163,11 @@ static void btn_ok_event_cb(lv_obj_t *btn, lv_event_t event) {
     clear_cur_ui();
     draw_return_ui();
   }
+  else if (DIALOG_IS(REVERT_SPI_TIPS)) {
+    gCfgItems_resetToFactory();
+    clear_cur_ui();
+    draw_return_ui();
+  }
   else if (DIALOG_IS(WIFI_CONFIG_TIPS)) {
     uiCfg.configWifi = 1;
     clear_cur_ui();
@@ -375,7 +380,7 @@ void lv_draw_dialog(uint8_t type) {
     lv_label_set_text(labelDialog, eeprom_menu.readTips);
     lv_obj_align(labelDialog, nullptr, LV_ALIGN_CENTER, 0, -20);
   }
-  else if (DIALOG_IS(REVERT_EEPROM_TIPS)) {
+  else if (DIALOG_IS(REVERT_EEPROM_TIPS, REVERT_SPI_TIPS)) {
     lv_label_set_text(labelDialog, eeprom_menu.revertTips);
     lv_obj_align(labelDialog, nullptr, LV_ALIGN_CENTER, 0, -20);
   }

@@ -238,6 +238,30 @@ static void disp_key_value() {
     case level_pos_y5:
       sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[4][1]);
       break;
+    case level_pos_x6:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[5][0]);
+      break;
+    case level_pos_y6:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[5][1]);
+      break;      
+    case level_pos_x7:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[6][0]);
+      break;
+    case level_pos_y7:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[6][1]);
+      break;      
+    case level_pos_x8:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[7][0]);
+      break;
+    case level_pos_y8:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[7][1]);
+      break;      
+    case level_pos_x9:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[8][0]);
+      break;
+    case level_pos_y9:
+      sprintf_P(public_buf_m, PSTR("%d"), (int)gCfgItems.levelingPos[8][1]);
+      break;      
     #if HAS_BED_PROBE
       case x_offset:
         #if HAS_PROBE_XY_OFFSET
@@ -463,6 +487,38 @@ static void set_value_confirm() {
       break;
     case level_pos_y5:
       gCfgItems.levelingPos[4][1] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_x6:
+      gCfgItems.levelingPos[5][0] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_y6:
+      gCfgItems.levelingPos[5][1] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_x7:
+      gCfgItems.levelingPos[6][0] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_y7:
+      gCfgItems.levelingPos[6][1] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_x8:
+      gCfgItems.levelingPos[7][0] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_y8:
+      gCfgItems.levelingPos[7][1] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_x9:
+      gCfgItems.levelingPos[8][0] = atoi(key_value);
+      update_spi_flash();
+      break;
+    case level_pos_y9:
+      gCfgItems.levelingPos[8][1] = atoi(key_value);
       update_spi_flash();
       break;
     #if HAS_BED_PROBE

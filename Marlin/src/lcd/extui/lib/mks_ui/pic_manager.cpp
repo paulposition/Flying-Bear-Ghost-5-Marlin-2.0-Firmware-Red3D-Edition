@@ -52,12 +52,12 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_manual_off.bin",
 
   //tool screen
-  "bmp_preHeat.bin",
-  "bmp_extruct.bin",
-  "bmp_mov.bin",
+  "bmp_preheat.bin",
+  "bmp_extruder.bin",
+  "bmp_move.bin",
   // "bmp_zero.bin",
   "bmp_leveling.bin",
-  "bmp_filamentchange.bin",
+  "bmp_filament.bin",
   "bmp_more.bin",
 
   //fan screen
@@ -124,10 +124,10 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_step1_percent.bin",
   "bmp_step5_percent.bin",
   "bmp_step10_percent.bin",
-  "bmp_extruct_sel.bin",
-  "bmp_mov_changespeed.bin",
+  "bmp_extruder_sel.bin",
+  "bmp_move_changespeed.bin",
   // "bmp_extrude_opr.bin", equal to "bmp_Extruct.bin"
-  "bmp_mov_sel.bin",
+  "bmp_move_sel.bin",
   "bmp_speed_extruct.bin",
 
   //printing screen
@@ -151,6 +151,10 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
     "bmp_leveling3.bin",
     "bmp_leveling4.bin",
     "bmp_leveling5.bin",
+    "bmp_leveling6.bin",
+    "bmp_leveling7.bin",
+    "bmp_leveling8.bin",
+    "bmp_leveling9.bin",
   #endif
 
   //lang select screen
@@ -192,8 +196,8 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
 
   //start screen
   "bmp_printing.bin",
-  "bmp_set.bin",
-  "bmp_tool.bin",
+  "bmp_settings.bin",
+  "bmp_tools.bin",
 
   // base icons
   "bmp_arrow.bin",

@@ -566,7 +566,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 710
+#define EXTRUDE_MAXLENGTH 1000
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -675,6 +675,7 @@
 #define X_DRIVER_TYPE  TMC2209_STANDALONE
 #define Y_DRIVER_TYPE  TMC2209_STANDALONE
 #define Z_DRIVER_TYPE  TMC2209_STANDALONE
+
 
 //#define X_DRIVER_TYPE A4988
 //#define Y_DRIVER_TYPE A4988
@@ -1110,7 +1111,7 @@
 #define Z_HOMING_HEIGHT  2      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
-#define Z_AFTER_HOMING  10      // (mm) Height to move to after homing Z
+#define Z_AFTER_HOMING  5      // (mm) Height to move to after homing Z
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]

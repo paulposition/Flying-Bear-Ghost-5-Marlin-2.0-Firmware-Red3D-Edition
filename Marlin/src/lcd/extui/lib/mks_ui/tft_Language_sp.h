@@ -89,6 +89,10 @@
 #define LEVELING_POINT3_TEXT_SP         "Tercero"
 #define LEVELING_POINT4_TEXT_SP         "Cuarto"
 #define LEVELING_POINT5_TEXT_SP         "Quinto"
+#define LEVELING_POINT6_TEXT_SP         "Sexto"
+#define LEVELING_POINT7_TEXT_SP         "Séptimo"
+#define LEVELING_POINT8_TEXT_SP         "Octavo"
+#define LEVELING_POINT9_TEXT_SP         "Noveno"
 
 #define FILESYS_TEXT_SP         "Puerto"
 #define WIFI_TEXT_SP            "WiFi"

@@ -130,7 +130,7 @@ void lv_draw_ready_print(void) {
 
     // Create image buttons
     //buttonPrint = lv_imgbtn_create(scr, nullptr);
-    buttonTool = lv_imgbtn_create(scr, "F:/bmp_tool.bin", event_handler, ID_TOOL);
+    buttonTool = lv_imgbtn_create(scr, "F:/bmp_tools.bin", event_handler, ID_TOOL);
 
     lv_obj_set_pos(buttonTool, 360, 180);
 
@@ -227,8 +227,8 @@ void lv_draw_ready_print(void) {
 
     disp_temp_homepage();
 
-    lv_big_button_create(scr, "F:/bmp_tool.bin", main_menu.tool, 20, 90, event_handler, ID_TOOL);
-    lv_big_button_create(scr, "F:/bmp_set.bin", main_menu.set, 180, 90, event_handler, ID_SET);
+    lv_big_button_create(scr, "F:/bmp_tools.bin", main_menu.tool, 20, 90, event_handler, ID_TOOL);
+    lv_big_button_create(scr, "F:/bmp_settings.bin", main_menu.set, 180, 90, event_handler, ID_SET);
     lv_big_button_create(scr, "F:/bmp_printing.bin", main_menu.print, 340, 90, event_handler, ID_PRINT);
   }
 }

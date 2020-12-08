@@ -336,6 +336,10 @@
 #define LEVELING_POINT3_TEXT_EN       "Point3"
 #define LEVELING_POINT4_TEXT_EN       "Point4"
 #define LEVELING_POINT5_TEXT_EN       "Point5"
+#define LEVELING_POINT6_TEXT_EN       "Point6"
+#define LEVELING_POINT7_TEXT_EN       "Point7"
+#define LEVELING_POINT8_TEXT_EN       "Point8"
+#define LEVELING_POINT9_TEXT_EN       "Point9"
 
 #define FILESYS_TEXT_EN               "FileSys"
 #define WIFI_TEXT_EN                  "WiFi"
