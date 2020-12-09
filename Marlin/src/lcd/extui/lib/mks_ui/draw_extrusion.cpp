@@ -124,9 +124,9 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
 void lv_draw_extrusion(void) {
   scr = lv_screen_create(EXTRUSION_UI);
   // Create image buttons
-  lv_obj_t *buttonAdd = lv_big_button_create(scr, "F:/bmp_in.bin", extrude_menu.in, INTERVAL_V, titleHeight, event_handler, ID_E_ADD);
+  lv_obj_t *buttonAdd = lv_big_button_create(scr, "F:/bmp_filament_in.bin", extrude_menu.in, INTERVAL_V, titleHeight, event_handler, ID_E_ADD);
   lv_obj_clear_protect(buttonAdd, LV_PROTECT_FOLLOW);
-  lv_big_button_create(scr, "F:/bmp_out.bin", extrude_menu.out, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_E_DEC);
+  lv_big_button_create(scr, "F:/bmp_filament_out.bin", extrude_menu.out, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_E_DEC);
 
   buttonType = lv_imgbtn_create(scr, nullptr, INTERVAL_V, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_E_TYPE);
   buttonStep = lv_imgbtn_create(scr, nullptr, BTN_X_PIXEL + INTERVAL_V * 2, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_E_STEP);
@@ -162,14 +162,14 @@ void lv_draw_extrusion(void) {
 
 void disp_ext_type() {
   if (uiCfg.curSprayerChoose == 1) {
-    lv_imgbtn_set_src_both(buttonType, "F:/bmp_extru2.bin");
+    lv_imgbtn_set_src_both(buttonType, "F:/bmp_extruder2.bin");
     if (gCfgItems.multiple_language) {
       lv_label_set_text(labelType, extrude_menu.ext2);
       lv_obj_align(labelType, buttonType, LV_ALIGN_IN_BOTTOM_MID, 0, BUTTON_TEXT_Y_OFFSET);
     }
   }
   else {
-    lv_imgbtn_set_src_both(buttonType, "F:/bmp_extru1.bin");
+    lv_imgbtn_set_src_both(buttonType, "F:/bmp_extruder1.bin");
     if (gCfgItems.multiple_language) {
       lv_label_set_text(labelType, extrude_menu.ext1);
       lv_obj_align(labelType, buttonType, LV_ALIGN_IN_BOTTOM_MID, 0, BUTTON_TEXT_Y_OFFSET);
@@ -230,11 +230,11 @@ void disp_extru_amount() {
 
 void disp_ext_step() {
   if (uiCfg.extruStep == 1)
-    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step1_mm.bin");
+    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_a.bin");
   else if (uiCfg.extruStep == 5)
-    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step5_mm.bin");
+    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_b.bin");
   else if (uiCfg.extruStep == 10)
-    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step10_mm.bin");
+    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_c.bin");
 
   if (gCfgItems.multiple_language) {
     if (uiCfg.extruStep == 1) {

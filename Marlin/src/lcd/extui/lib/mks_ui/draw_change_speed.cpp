@@ -128,8 +128,8 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
 void lv_draw_change_speed(void) {
   scr = lv_screen_create(CHANGE_SPEED_UI);
   // Create an Image button
-  lv_big_button_create(scr, "F:/bmp_Add.bin", speed_menu.add, INTERVAL_V, titleHeight, event_handler, ID_C_ADD);
-  lv_big_button_create(scr, "F:/bmp_Dec.bin", speed_menu.dec, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_C_DEC);
+  lv_big_button_create(scr, "F:/bmp_add.bin", speed_menu.add, INTERVAL_V, titleHeight, event_handler, ID_C_ADD);
+  lv_big_button_create(scr, "F:/bmp_dec.bin", speed_menu.dec, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_C_DEC);
   buttonMov  = lv_imgbtn_create(scr, nullptr, INTERVAL_V, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_C_MOVE);
   buttonExt  = lv_imgbtn_create(scr, nullptr, BTN_X_PIXEL + INTERVAL_V * 2, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_C_EXT);
   buttonStep = lv_imgbtn_create(scr, nullptr, BTN_X_PIXEL * 2 + INTERVAL_V * 3, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_C_STEP);
@@ -165,11 +165,11 @@ void lv_draw_change_speed(void) {
 
 void disp_speed_step() {
   if (uiCfg.stepPrintSpeed == 1)
-    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step1_percent.bin");
+    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_a.bin");
   else if (uiCfg.stepPrintSpeed == 5)
-    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step5_percent.bin");
+    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_b.bin");
   else if (uiCfg.stepPrintSpeed == 10)
-    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step10_percent.bin");
+    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_c.bin");
 
   if (gCfgItems.multiple_language) {
     if (uiCfg.stepPrintSpeed == 1) {

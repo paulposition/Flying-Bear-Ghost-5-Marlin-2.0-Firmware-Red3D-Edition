@@ -44,11 +44,10 @@ extern unsigned char bmp_public_buf[14 * 1024];
 
 static const char assets[][LONG_FILENAME_LENGTH] = {
   //homing screen
-  "bmp_zeroAll.bin",
   "bmp_zero.bin",
-  "bmp_zeroX.bin",
-  "bmp_zeroY.bin",
-  "bmp_zeroZ.bin",
+  "bmp_zero_x.bin",
+  "bmp_zero_y.bin",
+  "bmp_zero_z.bin",
   "bmp_manual_off.bin",
 
   //tool screen
@@ -61,11 +60,11 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_more.bin",
 
   //fan screen
-  "bmp_Add.bin",
-  "bmp_Dec.bin",
+  "bmp_add.bin",
+  "bmp_dec.bin",
   "bmp_speed255.bin",
   "bmp_speed127.bin",
-  "bmp_speed0.bin",
+  "bmp_0_degree.bin",
 
   //preheat screen
   // "bmp_Add.bin",
@@ -74,23 +73,19 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   // "bmp_Extru2.bin",
   // "bmp_Extru1.bin",
   "bmp_bed.bin",
-  "bmp_step1_degree.bin",
-  "bmp_step5_degree.bin",
-  "bmp_step10_degree.bin",
-
   //extrusion screen
-  "bmp_in.bin",
-  "bmp_out.bin",
-  "bmp_extru1.bin",
+  "bmp_filament_in.bin",
+  "bmp_filament_out.bin",
+  "bmp_extruder1.bin",
   #if HAS_MULTI_EXTRUDER
-    "bmp_extru2.bin",
+    "bmp_extruder2.bin",
   #endif
   "bmp_speed_high.bin",
   "bmp_speed_slow.bin",
   "bmp_speed_normal.bin",
-  "bmp_step1_mm.bin",
-  "bmp_step5_mm.bin",
-  "bmp_step10_mm.bin",
+  "bmp_step_a.bin",
+  "bmp_step_b.bin",
+  "bmp_step_c.bin",
 
   //select file screen
   "bmp_pageUp.bin",
@@ -101,15 +96,13 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
 
   //move motor screen
   //TODO: 6 equal icons, just in diffenct rotation... it may be optimized too
-  "bmp_xAdd.bin",
-  "bmp_xDec.bin",
-  "bmp_yAdd.bin",
-  "bmp_yDec.bin",
-  "bmp_zAdd.bin",
-  "bmp_zDec.bin",
-  "bmp_step_move0_1.bin",
-  "bmp_step_move1.bin",
-  "bmp_step_move10.bin",
+  "bmp_move_x_add.bin",
+  "bmp_move_x_dec.bin",
+  "bmp_move_y_add.bin",
+  "bmp_move_y_dec.bin",
+  "bmp_move_z_add.bin",
+  "bmp_move_z_dec.bin",
+  
 
   //operation screen
   "bmp_auto_off.bin",
@@ -121,9 +114,6 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_move_opr.bin",
 
   //change speed screen
-  "bmp_step1_percent.bin",
-  "bmp_step5_percent.bin",
-  "bmp_step10_percent.bin",
   "bmp_extruder_sel.bin",
   "bmp_move_changespeed.bin",
   // "bmp_extrude_opr.bin", equal to "bmp_Extruct.bin"
@@ -189,7 +179,7 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_about.bin",
   "bmp_eeprom_settings.bin",
   "bmp_machine_para.bin",
-  "bmp_function1.bin",
+  "bmp_stop.bin",
   //"bmp_manual_off.bin",
   //"bmp_Fan.bin",
   //"bmp_Language.bin",

@@ -116,13 +116,16 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
 
 void lv_draw_move_motor(void) {
   scr = lv_screen_create(MOVE_MOTOR_UI);
-  lv_obj_t *buttonXI = lv_big_button_create(scr, "F:/bmp_xAdd.bin", move_menu.x_add, INTERVAL_V, titleHeight, event_handler, ID_M_X_P);
+  lv_obj_t *buttonXI = lv_big_button_create(scr, "F:/bmp_move_x_add.bin", move_menu.x_add, INTERVAL_V, titleHeight, event_handler, ID_M_X_P);
   lv_obj_clear_protect(buttonXI, LV_PROTECT_FOLLOW);
-  lv_big_button_create(scr, "F:/bmp_xDec.bin", move_menu.x_dec, INTERVAL_V, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_M_X_N);
-  lv_big_button_create(scr, "F:/bmp_yAdd.bin", move_menu.y_add, BTN_X_PIXEL + INTERVAL_V * 2, titleHeight, event_handler, ID_M_Y_P);
-  lv_big_button_create(scr, "F:/bmp_yDec.bin", move_menu.y_dec, BTN_X_PIXEL + INTERVAL_V * 2, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_M_Y_N);
-  lv_big_button_create(scr, "F:/bmp_zAdd.bin", move_menu.z_add, BTN_X_PIXEL * 2 + INTERVAL_V * 3, titleHeight, event_handler, ID_M_Z_P);
-  lv_big_button_create(scr, "F:/bmp_zDec.bin", move_menu.z_dec, BTN_X_PIXEL * 2 + INTERVAL_V * 3, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_M_Z_N);
+  lv_big_button_create(scr, "F:/bmp_move_x_dec.bin", move_menu.x_dec, INTERVAL_V, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_M_X_N);
+  lv_big_button_create(scr, "F:/bmp_move_y_add.bin", move_menu.y_add, BTN_X_PIXEL + INTERVAL_V * 2, titleHeight, event_handler, ID_M_Y_P);
+  lv_big_button_create(scr, "F:/bmp_move_y_dec.bin", move_menu.y_dec, BTN_X_PIXEL + INTERVAL_V * 2, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_M_Y_N);
+  lv_big_button_create(scr, "F:/bmp_move_z_add.bin", move_menu.z_add, BTN_X_PIXEL * 2 + INTERVAL_V * 3, titleHeight, event_handler, ID_M_Z_P);
+  lv_big_button_create(scr, "F:/bmp_move_z_dec.bin", move_menu.z_dec, BTN_X_PIXEL * 2 + INTERVAL_V * 3, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_M_Z_N);
+
+
+
 
   // button with image and label changed dinamycally by disp_move_dist
   buttonV = lv_imgbtn_create(scr, nullptr, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_M_STEP);
@@ -142,11 +145,11 @@ void disp_move_dist() {
   // char buf[30] = {0};
 
   if ((int)(10 * uiCfg.move_dist) == 1)
-    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_move0_1.bin");
+    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_a.bin");
   else if ((int)(10 * uiCfg.move_dist) == 10)
-    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_move1.bin");
+    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_b.bin");
   else if ((int)(10 * uiCfg.move_dist) == 100)
-    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_move10.bin");
+    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_c.bin");
 
   if (gCfgItems.multiple_language) {
     if ((int)(10 * uiCfg.move_dist) == 1) {
