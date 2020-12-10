@@ -42,8 +42,8 @@ you can find precompiled firmware in /firmware_builds, one for the stock printer
 * Generate and print test directly on board (temperature tower, flow calibration, PID, steps, etc)
 
 ### Known problems
-* missing "previous button" in page 2 in calibration point customization
-* wifi file upload doesn't work always fine, if you have problem with the printer starting without pre-heating, please copy gcode files directly to the sd
+* missing "previous button" in page 2 in bed calibration point customization
+* wifi  "upload & print" doesn't work always fine, if you have problem with the printer starting without pre-heating, please copy gcode files directly to the sd
 
 
 ### Bonus
