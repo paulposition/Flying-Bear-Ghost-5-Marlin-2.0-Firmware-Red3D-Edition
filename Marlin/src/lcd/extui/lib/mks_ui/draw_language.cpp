@@ -59,7 +59,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
   switch (obj->mks_obj_id) {
     case ID_CN:
       disp_language(gCfgItems.language, UNSELECTED);
-      lv_imgbtn_set_src_both(buttonCN, "F:/bmp_simplified_cn_sel.bin");
+      lv_imgbtn_set_src_both(buttonCN, "F:/bmp_s_cn_sel.bin");
       lv_obj_refresh_ext_draw_pad(buttonCN);
       gCfgItems.language = LANG_SIMPLE_CHINESE;
       update_spi_flash();
@@ -67,7 +67,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       break;
     case ID_T_CN:
       disp_language(gCfgItems.language, UNSELECTED);
-      lv_imgbtn_set_src_both(buttonT_CN, "F:/bmp_traditional_cn_sel.bin");
+      lv_imgbtn_set_src_both(buttonT_CN, "F:/bmp_t_cn_sel.bin");
       lv_obj_refresh_ext_draw_pad(buttonT_CN);
       gCfgItems.language = LANG_COMPLEX_CHINESE;
       update_spi_flash();
@@ -75,7 +75,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       break;
     case ID_EN:
       disp_language(gCfgItems.language, UNSELECTED);
-      lv_imgbtn_set_src_both(buttonEN, "F:/bmp_english_sel.bin");
+      lv_imgbtn_set_src_both(buttonEN, "F:/bmp_en_sel.bin");
       lv_obj_refresh_ext_draw_pad(buttonEN);
       gCfgItems.language = LANG_ENGLISH;
       update_spi_flash();
@@ -83,7 +83,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       break;
     case ID_RU:
       disp_language(gCfgItems.language, UNSELECTED);
-      lv_imgbtn_set_src_both(buttonRU, "F:/bmp_russian_sel.bin");
+      lv_imgbtn_set_src_both(buttonRU, "F:/bmp_ru_sel.bin");
       lv_obj_refresh_ext_draw_pad(buttonRU);
       gCfgItems.language = LANG_RUSSIAN;
       update_spi_flash();
@@ -91,7 +91,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       break;
     case ID_ES:
       disp_language(gCfgItems.language, UNSELECTED);
-      lv_imgbtn_set_src_both(buttonES, "F:/bmp_spanish_sel.bin");
+      lv_imgbtn_set_src_both(buttonES, "F:/bmp_es_sel.bin");
       lv_obj_refresh_ext_draw_pad(buttonES);
       gCfgItems.language = LANG_SPANISH;
       update_spi_flash();
@@ -99,7 +99,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       break;
     case ID_FR:
       disp_language(gCfgItems.language, UNSELECTED);
-      lv_imgbtn_set_src_both(buttonFR, "F:/bmp_french_sel.bin");
+      lv_imgbtn_set_src_both(buttonFR, "F:/bmp_fr_sel.bin");
       lv_obj_refresh_ext_draw_pad(buttonFR);
       gCfgItems.language = LANG_FRENCH;
       update_spi_flash();
@@ -107,7 +107,7 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       break;
     case ID_IT:
       disp_language(gCfgItems.language, UNSELECTED);
-      lv_imgbtn_set_src_both(buttonIT, "F:/bmp_italy_sel.bin");
+      lv_imgbtn_set_src_both(buttonIT, "F:/bmp_it_sel.bin");
       lv_obj_refresh_ext_draw_pad(buttonIT);
       gCfgItems.language = LANG_ITALY;
       update_spi_flash();
@@ -137,42 +137,42 @@ static void disp_language(uint8_t language, uint8_t state) {
   switch (language) {
     case LANG_SIMPLE_CHINESE:
       id = ID_CN;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_simplified_cn"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_s_cn"));
       obj = buttonCN;
       break;
     case LANG_COMPLEX_CHINESE:
       id = ID_T_CN;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_traditional_cn"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_t_cn"));
       obj = buttonT_CN;
       break;
     case LANG_ENGLISH:
       id = ID_EN;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_english"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_en"));
       obj = buttonEN;
       break;
     case LANG_RUSSIAN:
       id = ID_RU;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_russian"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_ru"));
       obj = buttonRU;
       break;
     case LANG_SPANISH:
       id = ID_ES;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_spanish"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_es"));
       obj = buttonES;
       break;
     case LANG_FRENCH:
       id = ID_FR;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_french"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_fr"));
       obj = buttonFR;
       break;
     case LANG_ITALY:
       id = ID_IT;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_italy"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_it"));
       obj = buttonIT;
       break;
     default:
       id = ID_CN;
-      strcpy_P(public_buf_l, PSTR("F:/bmp_simplified_cn"));
+      strcpy_P(public_buf_l, PSTR("F:/bmp_en"));
       obj = buttonCN;
       break;
   }
@@ -190,14 +190,14 @@ static void disp_language(uint8_t language, uint8_t state) {
 void lv_draw_language(void) {
   scr = lv_screen_create(LANGUAGE_UI);
   // Create image buttons
-  buttonCN = lv_big_button_create(scr, "F:/bmp_simplified_cn.bin", language_menu.chinese_s, INTERVAL_V, titleHeight, event_handler, ID_CN);
+  buttonCN = lv_big_button_create(scr, "F:/bmp_s_cn.bin", language_menu.chinese_s, INTERVAL_V, titleHeight, event_handler, ID_CN);
   lv_obj_clear_protect(buttonCN, LV_PROTECT_FOLLOW);
-  buttonT_CN = lv_big_button_create(scr, "F:/bmp_traditional_cn.bin", language_menu.chinese_t, BTN_X_PIXEL + INTERVAL_V * 2, titleHeight, event_handler, ID_T_CN);
-  buttonEN = lv_big_button_create(scr, "F:/bmp_english.bin", language_menu.english, BTN_X_PIXEL * 2 + INTERVAL_V * 3, titleHeight, event_handler, ID_EN);
-  buttonRU = lv_big_button_create(scr, "F:/bmp_russian.bin", language_menu.russian, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_RU);
-  buttonES = lv_big_button_create(scr, "F:/bmp_spanish.bin", language_menu.spanish, INTERVAL_V, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_ES);
-  buttonFR = lv_big_button_create(scr, "F:/bmp_french.bin", language_menu.french, BTN_X_PIXEL + INTERVAL_V * 2, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_FR);
-  buttonIT = lv_big_button_create(scr, "F:/bmp_italy.bin", language_menu.italy, BTN_X_PIXEL * 2 + INTERVAL_V * 3, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_IT);
+  buttonT_CN = lv_big_button_create(scr, "F:/bmp_t_cn.bin", language_menu.chinese_t, BTN_X_PIXEL + INTERVAL_V * 2, titleHeight, event_handler, ID_T_CN);
+  buttonEN = lv_big_button_create(scr, "F:/bmp_en.bin", language_menu.english, BTN_X_PIXEL * 2 + INTERVAL_V * 3, titleHeight, event_handler, ID_EN);
+  buttonRU = lv_big_button_create(scr, "F:/bmp_ru.bin", language_menu.russian, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_RU);
+  buttonES = lv_big_button_create(scr, "F:/bmp_es.bin", language_menu.spanish, INTERVAL_V, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_ES);
+  buttonFR = lv_big_button_create(scr, "F:/bmp_fr.bin", language_menu.french, BTN_X_PIXEL + INTERVAL_V * 2, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_FR);
+  buttonIT = lv_big_button_create(scr, "F:/bmp_it.bin", language_menu.italy, BTN_X_PIXEL * 2 + INTERVAL_V * 3, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_IT);
   lv_big_button_create(scr, "F:/bmp_return.bin", common_menu.text_back, BTN_X_PIXEL * 3 + INTERVAL_V * 4, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_L_RETURN);
   disp_language(gCfgItems.language, SELECTED);
 }

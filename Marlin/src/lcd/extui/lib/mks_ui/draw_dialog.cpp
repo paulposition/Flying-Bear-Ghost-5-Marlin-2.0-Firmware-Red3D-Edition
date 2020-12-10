@@ -327,6 +327,13 @@ void lv_draw_dialog(uint8_t type) {
   else if (DIALOG_IS(TYPE_FINISH_PRINT)) {
     lv_label_set_text(labelDialog, print_file_dialog_menu.print_finish);
     lv_obj_align(labelDialog, nullptr, LV_ALIGN_CENTER, 0, -20);
+
+    lv_obj_t *labelDialog1 = lv_label_create(scr, "");
+
+    sprintf_P(public_buf_l, PSTR("%d%d:%d%d:%d%d"), print_time.hours / 10, print_time.hours % 10, print_time.minutes / 10, print_time.minutes % 10, print_time.seconds / 10, print_time.seconds % 10);
+    lv_label_set_text(labelDialog1, public_buf_l);
+    lv_obj_align(labelDialog1, nullptr, LV_ALIGN_OUT_RIGHT_BOTTOM, 0, -20);
+
   }
   else if (DIALOG_IS(PAUSE_MESSAGE_PAUSING)) {
     lv_label_set_text(labelDialog, pause_msg_menu.pausing);

@@ -138,11 +138,11 @@ void lv_draw_baby_stepping(void) {
 void disp_baby_step_dist() {
   // char buf[30] = {0};
   if ((int)(100 * babystep_dist) == 1)
-    lv_imgbtn_set_src_both(buttonV, "F:/bmp_baby_move0_01.bin");
+    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_a.bin");
   else if ((int)(100 * babystep_dist) == 5)
-    lv_imgbtn_set_src_both(buttonV, "F:/bmp_baby_move0_05.bin");
+    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_b.bin");
   else if ((int)(100 * babystep_dist) == 10)
-    lv_imgbtn_set_src_both(buttonV, "F:/bmp_baby_move0_1.bin");
+    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_c.bin");
 
   if (gCfgItems.multiple_language) {
     if ((int)(100 * babystep_dist) == 1) {

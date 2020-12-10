@@ -66,6 +66,7 @@
 #define TEXT_01MM_RU                    "0.1 mm"
 #define TEXT_1MM_RU                     "1 mm"
 #define TEXT_10MM_RU                    "10 mm"
+#define TEXT_50MM_RU                    "50 mm"
 
 #define HOME_X_TEXT_RU                  "X"
 #define HOME_Y_TEXT_RU                  "Y"
@@ -81,6 +82,7 @@
 #define EXTRUDE_1MM_TEXT_RU             "1 mm"
 #define EXTRUDE_5MM_TEXT_RU             "5 mm"
 #define EXTRUDE_10MM_TEXT_RU            "10 mm"
+#define EXTRUDE_50MM_TEXT_RU            "50mm"
 #define EXTRUDE_LOW_SPEED_TEXT_RU       "мин"
 #define EXTRUDE_MEDIUM_SPEED_TEXT_RU    "сред"
 #define EXTRUDE_HIGH_SPEED_TEXT_RU      "выс"

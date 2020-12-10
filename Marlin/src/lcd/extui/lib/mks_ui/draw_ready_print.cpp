@@ -230,6 +230,9 @@ void lv_draw_ready_print(void) {
     lv_big_button_create(scr, "F:/bmp_tools.bin", main_menu.tool, 20, 90, event_handler, ID_TOOL);
     lv_big_button_create(scr, "F:/bmp_settings.bin", main_menu.set, 180, 90, event_handler, ID_SET);
     lv_big_button_create(scr, "F:/bmp_printing.bin", main_menu.print, 340, 90, event_handler, ID_PRINT);
+
+
+
   }
 }
 

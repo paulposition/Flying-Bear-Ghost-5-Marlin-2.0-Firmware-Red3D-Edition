@@ -65,6 +65,7 @@
 #define TEXT_01MM_FR                  "0.1mm"
 #define TEXT_1MM_FR                   "1mm"
 #define TEXT_10MM_FR                  "10mm"
+#define TEXT_50MM_FR                  "50mm"
 
 #define HOME_X_TEXT_FR                "X"
 #define HOME_Y_TEXT_FR                "Y"
@@ -80,6 +81,7 @@
 #define EXTRUDE_1MM_TEXT_FR           "1mm"
 #define EXTRUDE_5MM_TEXT_FR           "5mm"
 #define EXTRUDE_10MM_TEXT_FR          "10mm"
+#define EXTRUDE_50MM_TEXT_FR          "50mm"
 #define EXTRUDE_LOW_SPEED_TEXT_FR     "Lente"
 #define EXTRUDE_MEDIUM_SPEED_TEXT_FR  "Moyen"
 #define EXTRUDE_HIGH_SPEED_TEXT_FR    "Rapide"

@@ -296,6 +296,7 @@
 #define TEXT_01MM_T_CN                  "0.1mm"
 #define TEXT_1MM_T_CN                   "1mm"
 #define TEXT_10MM_T_CN                  "10mm"
+#define TEXT_50MM_T_CN                  "50mm"
 
 #define HOME_X_TEXT_T_CN                "X"
 #define HOME_Y_TEXT_T_CN                "Y"
@@ -311,6 +312,7 @@
 #define EXTRUDE_1MM_TEXT_T_CN           "1mm"
 #define EXTRUDE_5MM_TEXT_T_CN           "5mm"
 #define EXTRUDE_10MM_TEXT_T_CN          "10mm"
+#define EXTRUDE_50MM_TEXT_CN            "50mm"
 #define EXTRUDE_LOW_SPEED_TEXT_T_CN     "低速"
 #define EXTRUDE_MEDIUM_SPEED_TEXT_T_CN  "常速"
 #define EXTRUDE_HIGH_SPEED_TEXT_T_CN    "高速"

@@ -349,7 +349,8 @@ const lv_img_dsc_t " . $this->out_name . " = {
         $name = $name . ".c";
 
       if($offline){
-        $file = fopen($$name, "w");
+        echo "---------" . $name;
+        $file = fopen($name, "w");
         fwrite($file, $out);
         fclose($file);
       }

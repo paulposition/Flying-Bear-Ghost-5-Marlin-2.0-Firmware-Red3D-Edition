@@ -4,17 +4,21 @@
 ## ** Work in progress, also if this firmware is functional and printing every day here, try it at your own risk ** ##
 
 
-## ** important note ** ##
+## ** Important note ** ##
 After first flash, go to Sttings -> Eeprom set and run both "Revert" functions, then you can start to change parameters you want.
 
-## Changes (in random order)
+### Precompiled Firmwares
+you can find precompiled firmware in /firmware_builds, one for the stock printer, the other one if you have replaced all drivers with TMC2209 (Standalone, No UART). For other pre-built firmware compile it yourself or ask.
+
+
+### Changes (in random order)
 * Default configured for 4xTMC2209 (STANDALONE; NO UART)
 * Trinamic's UART mode disabled 
 * FAN_MIN_PWM is set to 64. Now the model blower works from 1% to 100%, and not from ~ 20% to 100% as before.
 * Enabled  diagonal movements when going home (XY)
 * Increased resolution of multi-axis moves (ADAPTIVE_STEP_SMOOTHING)
 * Enabled Linear Pressure Control and S-Curve Acceleration LIN_ADVANCE EXPERIMENTAL_SCURVE (Set to 0, to calibrate: [Linear Advance | Marlin Firmware](https://marlinfw.org/docs/features/lin_advance.html)=. (applicable with UART enabled)
-* Increased RX_BUFFER_SIZE
+* Increased RX_BUFFER_SIZE and set defautlr baudrate to 250000
 * Enabled square wave stepping (SQUARE_WAVE_STEPPING)
 * Disabled all Volumetric extrusion options
 * Changed PID standard Values and enabled PID  for the Bed  (Remember to calibrate yours)
@@ -23,32 +27,33 @@ After first flash, go to Sttings -> Eeprom set and run both "Revert" functions, 
 * Wifi is working with standard MksWifi.Bin (some troubles with file upload, still testing)
 * Enabled resume printing after power outage (partially tested)
 * 7 custom function configurable by Configuration.h
+* Enabled EMERGENCY_PARSER to give priority to STOP/POWEROFF/etc signal from USB/Wifi interface
 
-## New features
+### New features
 * 9 Point manual levelling with a redesigned interface
 * Added menu voice to initialize user setting inside TFT35 
 * A whole new graphics
 * Touchscreen Calibration (as custom function n.4)
   
-## Working on
+### Working on
 * Automatic Mesh Bed Levelling (No BLtouch)
-* New "home screen"
+* New "home screen" (More functional)
 * Replacing MksWifi with ESP3D by default
 * Generate and print test directly on board (temperature tower, flow calibration, PID, steps, etc)
 
-## Known problems
+### Known problems
 * missing "previous button" in page 2 in calibration point customization
 * wifi file upload doesn't work always fine, if you have problem with the printer starting without pre-heating, please copy gcode files directly to the sd
-* some trouble with long file names, always showed in 8.3 format
 
-## Bonus
+
+### Bonus
 * PSD file to export all custom images in one click (slices predefined, just edit and export in /custom_graphics/images)
 * Custom assets conversion (png -> bin) done automatically when build building firmware (need php installed)
 
-## graphic preview without texts
 
-<img  width=175 src="custom_graphics/preview.jpg" />
+## PSD preview
 
+<img  width=175 src="custom_graphics/psd_preview.jpg" />
 
 
 

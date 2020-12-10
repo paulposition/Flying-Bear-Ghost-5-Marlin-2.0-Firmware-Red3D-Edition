@@ -789,6 +789,7 @@ void disp_language_init() {
   move_menu.step_01mm  = TEXT_01MM;
   move_menu.step_1mm   = TEXT_1MM;
   move_menu.step_10mm  = TEXT_10MM;
+  move_menu.step_50mm  = TEXT_50MM;
 
   home_menu.home_x   = HOME_X_TEXT;
   home_menu.home_y   = HOME_Y_TEXT;
@@ -802,6 +803,7 @@ void disp_language_init() {
   extrude_menu.step_1mm       = EXTRUDE_1MM_TEXT;
   extrude_menu.step_5mm       = EXTRUDE_5MM_TEXT;
   extrude_menu.step_10mm      = EXTRUDE_10MM_TEXT;
+  extrude_menu.step_50mm      = EXTRUDE_50MM_TEXT;
 
   fan_menu.full = FAN_OPEN_TEXT;
   fan_menu.half = FAN_HALF_TEXT;

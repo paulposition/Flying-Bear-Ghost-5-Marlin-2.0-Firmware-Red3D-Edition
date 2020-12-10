@@ -364,6 +364,7 @@ typedef struct move_menu_disp {
   const char *step_01mm;
   const char *step_1mm;
   const char *step_10mm;
+  const char *step_50mm;
   const char *back;
 } move_menu_def;
 
@@ -404,6 +405,7 @@ typedef struct extrude_menu_disp {
   const char *step_1mm;
   const char *step_5mm;
   const char *step_10mm;
+  const char *step_50mm;
   const char *low;
   const char *normal;
   const char *high;
@@ -784,10 +786,12 @@ extern eeprom_def eeprom_menu;
 #define TEXT_01MM           "0.1 mm"
 #define TEXT_1MM            "1 mm"
 #define TEXT_10MM           "10 mm"
+#define TEXT_50MM           "50 mm"
 
 #define EXTRUDE_1MM_TEXT    "1 mm"
 #define EXTRUDE_5MM_TEXT    "5 mm"
 #define EXTRUDE_10MM_TEXT   "10 mm"
+#define EXTRUDE_50MM_TEXT   "50 mm"
 
 #define STEP_1PERCENT       "1%"
 #define STEP_5PERCENT       "5%"

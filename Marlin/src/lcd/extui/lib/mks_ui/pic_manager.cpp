@@ -45,6 +45,7 @@ extern unsigned char bmp_public_buf[14 * 1024];
 static const char assets[][LONG_FILENAME_LENGTH] = {
   //homing screen
   "bmp_zero.bin",
+  "bmp_zero_all.bin",
   "bmp_zero_x.bin",
   "bmp_zero_y.bin",
   "bmp_zero_z.bin",
@@ -86,11 +87,12 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_step_a.bin",
   "bmp_step_b.bin",
   "bmp_step_c.bin",
+  "bmp_step_d.bin",
 
   //select file screen
-  "bmp_pageUp.bin",
-  "bmp_pageDown.bin",
-  "bmp_back.bin", //TODO: why two back buttons? Why not just one? (return / back)
+  "bmp_page_up_half.bin",
+  "bmp_page_down_half.bin",
+  "bmp_return_half.bin", //TODO: why two back buttons? Why not just one? (return / back)
   "bmp_dir.bin",
   "bmp_file.bin",
 
@@ -110,8 +112,8 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   //"bmp_Mamual.bin", //TODO: didn't find it.. changed to bmp_manual_off.bin
   "bmp_fan.bin",
   "bmp_temp.bin",
-  "bmp_extrude_opr.bin",
-  "bmp_move_opr.bin",
+  //"bmp_extrude_opr.bin",
+  //"bmp_move_opr.bin",
 
   //change speed screen
   "bmp_extruder_sel.bin",
@@ -121,9 +123,9 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_speed_extruct.bin",
 
   //printing screen
-  "bmp_pause.bin",
-  "bmp_resume.bin",
-  "bmp_stop.bin",
+  "bmp_pause_small.bin",
+  "bmp_resume_small.bin",
+  "bmp_stop_small.bin",
   "bmp_ext1_state.bin",
   #if HAS_MULTI_EXTRUDER
     "bmp_ext2_state.bin",
@@ -132,7 +134,7 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_fan_state.bin",
   "bmp_time_state.bin",
   "bmp_zpos_state.bin",
-  "bmp_operate.bin",
+  "bmp_operate_small.bin",
 
   //manual leval screen (only if disabled auto level)
   #if DISABLED(AUTO_BED_LEVELING_BILINEAR)
@@ -150,20 +152,20 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   //lang select screen
   #if HAS_LANG_SELECT_SCREEN
     "bmp_language.bin",
-    "bmp_simplified_cn.bin",
-    "bmp_simplified_cn_sel.bin",
-    "bmp_traditional_cn.bin",
-    "bmp_traditional_cn_sel.bin",
-    "bmp_english.bin",
-    "bmp_english_sel.bin",
-    "bmp_russian.bin",
-    "bmp_russian_sel.bin",
-    "bmp_spanish.bin",
-    "bmp_spanish_sel.bin",
-    "bmp_french.bin",
-    "bmp_french_sel.bin",
-    "bmp_italy.bin",
-    "bmp_italy_sel.bin",
+    "bmp_s_cn.bin",
+    "bmp_s_cn_sel.bin",
+    "bmp_t_cn.bin",
+    "bmp_t_cn_sel.bin",
+    "bmp_en.bin",
+    "bmp_en_sel.bin",
+    "bmp_ru.bin",
+    "bmp_ru_sel.bin",
+    "bmp_es.bin",
+    "bmp_es_sel.bin",
+    "bmp_fr.bin",
+    "bmp_fr_sel.bin",
+    "bmp_it.bin",
+    "bmp_it_sel.bin",
   #endif // HAS_LANG_SELECT_SCREEN
 
   // gcode preview
@@ -197,11 +199,13 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_disable.bin",
   "bmp_enable.bin",
   "bmp_return.bin",
+  // "bmp_mov_changesSeed",
 
   #if ENABLED(MKS_WIFI_MODULE)
     // wifi screen
     "bmp_wifi.bin",
-    "bmp_cloud.bin",
+    "bmp_reconnect.bin",
+    // "bmp_cloud.bin",
   #endif
 
   // babystep screen

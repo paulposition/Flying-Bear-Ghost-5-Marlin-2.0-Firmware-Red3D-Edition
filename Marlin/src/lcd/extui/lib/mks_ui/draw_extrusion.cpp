@@ -100,7 +100,8 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       switch (abs(uiCfg.extruStep)) {
         case  1: uiCfg.extruStep = 5; break;
         case  5: uiCfg.extruStep = 10; break;
-        case 10: uiCfg.extruStep = 1; break;
+        case 10: uiCfg.extruStep = 50; break;
+        case 50: uiCfg.extruStep = 1; break;
         default: break;
       }
       disp_ext_step();
@@ -235,6 +236,8 @@ void disp_ext_step() {
     lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_b.bin");
   else if (uiCfg.extruStep == 10)
     lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_c.bin");
+  else if (uiCfg.extruStep == 50)
+    lv_imgbtn_set_src_both(buttonStep, "F:/bmp_step_d.bin");
 
   if (gCfgItems.multiple_language) {
     if (uiCfg.extruStep == 1) {
@@ -247,6 +250,10 @@ void disp_ext_step() {
     }
     else if (uiCfg.extruStep == 10) {
       lv_label_set_text(labelStep, extrude_menu.step_10mm);
+      lv_obj_align(labelStep, buttonStep, LV_ALIGN_IN_BOTTOM_MID, 0, BUTTON_TEXT_Y_OFFSET);
+    }
+    else if (uiCfg.extruStep == 50) {
+      lv_label_set_text(labelStep, extrude_menu.step_50mm);
       lv_obj_align(labelStep, buttonStep, LV_ALIGN_IN_BOTTOM_MID, 0, BUTTON_TEXT_Y_OFFSET);
     }
   }

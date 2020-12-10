@@ -101,10 +101,17 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       }
       break;
     case ID_M_STEP:
-      if (abs(10 * (int)uiCfg.move_dist) == 100)
-        uiCfg.move_dist = 0.1;
-      else
-        uiCfg.move_dist *= (float)10;
+      switch (abs(10 * (int)uiCfg.move_dist)) { 
+        case 1: uiCfg.move_dist = 1; break;
+        case 10: uiCfg.move_dist = 10; break;
+        case 100: uiCfg.move_dist = 50; break;
+        case 500: uiCfg.move_dist = 0.1; break;
+        default: break;
+      }
+      // if (abs(10 * (int)uiCfg.move_dist) == 100)
+      //   uiCfg.move_dist = 0.1;
+      // else
+      //   uiCfg.move_dist *= (float)10;
       disp_move_dist();
       break;
     case ID_M_RETURN:
@@ -150,6 +157,8 @@ void disp_move_dist() {
     lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_b.bin");
   else if ((int)(10 * uiCfg.move_dist) == 100)
     lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_c.bin");
+  else if ((int)(10 * uiCfg.move_dist) == 500)
+    lv_imgbtn_set_src_both(buttonV, "F:/bmp_step_d.bin");
 
   if (gCfgItems.multiple_language) {
     if ((int)(10 * uiCfg.move_dist) == 1) {
@@ -162,6 +171,10 @@ void disp_move_dist() {
     }
     else if ((int)(10 * uiCfg.move_dist) == 100) {
       lv_label_set_text(labelV, move_menu.step_10mm);
+      lv_obj_align(labelV, buttonV, LV_ALIGN_IN_BOTTOM_MID, 0, BUTTON_TEXT_Y_OFFSET);
+    }
+    else if ((int)(10 * uiCfg.move_dist) == 500) {
+      lv_label_set_text(labelV, move_menu.step_50mm);
       lv_obj_align(labelV, buttonV, LV_ALIGN_IN_BOTTOM_MID, 0, BUTTON_TEXT_Y_OFFSET);
     }
   }
