@@ -109,18 +109,12 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   //operation screen
   "bmp_auto_off.bin",
   "bmp_speed.bin",
-  //"bmp_Mamual.bin", //TODO: didn't find it.. changed to bmp_manual_off.bin
   "bmp_fan.bin",
   "bmp_temp.bin",
-  //"bmp_extrude_opr.bin",
-  //"bmp_move_opr.bin",
-
-  //change speed screen
   "bmp_extruder_sel.bin",
-  "bmp_move_changespeed.bin",
-  // "bmp_extrude_opr.bin", equal to "bmp_Extruct.bin"
   "bmp_move_sel.bin",
-  "bmp_speed_extruct.bin",
+  "bmp_extruder_unsel.bin",
+  "bmp_move_unsel.bin",
 
   //printing screen
   "bmp_pause_small.bin",
