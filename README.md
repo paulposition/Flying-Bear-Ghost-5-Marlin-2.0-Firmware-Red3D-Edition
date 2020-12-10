@@ -5,7 +5,7 @@
 
 
 ## ** Important note ** ##
-After first flash, go to Sttings -> Eeprom set and run both "Revert" functions, then you can start to change parameters you want.
+After first flash, go to Settings -> Eeprom set and run both "Revert" functions, then you can start to change parameters you want.
 
 ### Precompiled Firmwares
 you can find precompiled firmware in /firmware_builds, one for the stock printer, the other one if you have replaced all drivers with TMC2209 (Standalone, No UART). For other pre-built firmware compile it yourself or ask.
