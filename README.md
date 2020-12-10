@@ -17,7 +17,7 @@ you can find precompiled firmware in /firmware_builds, one for the stock printer
 * FAN_MIN_PWM is set to 64. Now the model blower works from 1% to 100%, and not from ~ 20% to 100% as before.
 * Enabled  diagonal movements when going home (XY)
 * Increased resolution of multi-axis moves (ADAPTIVE_STEP_SMOOTHING)
-* Enabled Linear Pressure Control and S-Curve Acceleration LIN_ADVANCE EXPERIMENTAL_SCURVE (Set to 0, to calibrate: [Linear Advance | Marlin Firmware](https://marlinfw.org/docs/features/lin_advance.html)=. (applicable with UART enabled)
+* Enabled Linear Pressure Control and S-Curve Acceleration LIN_ADVANCE EXPERIMENTAL_SCURVE (Set to 0, to calibrate: [Linear Advance | Marlin Firmware](https://marlinfw.org/docs/features/lin_advance.html). (applicable with UART enabled)
 * Increased RX_BUFFER_SIZE and set defautlr baudrate to 250000
 * Enabled square wave stepping (SQUARE_WAVE_STEPPING)
 * Disabled all Volumetric extrusion options
@@ -53,7 +53,7 @@ you can find precompiled firmware in /firmware_builds, one for the stock printer
 
 ## PSD preview
 
-<img  width=175 src="custom_graphics/psd_preview.jpg" />
+<img src="docs/psd_preview.jpg" />
 
 
 
