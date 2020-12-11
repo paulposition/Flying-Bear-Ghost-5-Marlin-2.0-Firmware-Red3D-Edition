@@ -101,19 +101,18 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
       }
       break;
     case ID_M_STEP:
-      switch (abs(10 * (int)uiCfg.move_dist)) { 
-        case 1: uiCfg.move_dist = 1; break;
-        case 10: uiCfg.move_dist = 10; break;
-        case 100: uiCfg.move_dist = 50; break;
-        case 500: uiCfg.move_dist = 0.1; break;
+      {
+      int current_move_dist = abs(10 * uiCfg.move_dist);
+      switch (current_move_dist) { 
+        case 1: uiCfg.move_dist = floorf(1 * 10) / 10; break;
+        case 10: uiCfg.move_dist = floorf(10 * 10) / 10; break;
+        case 100: uiCfg.move_dist = floorf(50 * 10) / 10; break;
+        case 500: uiCfg.move_dist = floorf(0.1 * 10) / 10; break;
         default: break;
       }
-      // if (abs(10 * (int)uiCfg.move_dist) == 100)
-      //   uiCfg.move_dist = 0.1;
-      // else
-      //   uiCfg.move_dist *= (float)10;
       disp_move_dist();
       break;
+      }
     case ID_M_RETURN:
       clear_cur_ui();
       draw_return_ui();
