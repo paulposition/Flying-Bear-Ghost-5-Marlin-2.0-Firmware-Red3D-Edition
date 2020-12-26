@@ -8,11 +8,11 @@
 After first flash, go to Settings -> Eeprom set and run both "Revert" functions, then you can start to change parameters you want.
 
 ## Compatibility
-Personally tested on Ghost 5, but reported to work also on 4 and 4s models
+Personally tested on Ghost 5,  reported to work also on 4s models
 
-### Precompiled Firmwares
-you can find precompiled firmware in /firmware_builds, one for the stock printer, the other one if you have replaced all drivers with TMC2209 (Standalone, No UART). For other pre-built firmware compile it yourself or ask.
-
+## Precompiled Firmwares
+~~you can find precompiled firmware in /firmware_builds, one for the stock printer, the other one if you have replaced all drivers with TMC2209 (Standalone, No UART). For other pre-built firmware compile it yourself or ask.~~
+removed, maybe in future I will bring them back
 
 ### Changes (in random order)
 * Default configured for 4xTMC2209 (STANDALONE; NO UART)
