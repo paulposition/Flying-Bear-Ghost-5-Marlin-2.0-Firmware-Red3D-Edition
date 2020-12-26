@@ -132,9 +132,9 @@ static void btn_ok_event_cb(lv_obj_t *btn, lv_event_t event) {
       //print_job_timer.stop();
       //thermalManager.disable_all_heaters();
 
-      //#if ENABLED(POWER_LOSS_RECOVERY)
-      //  recovery.purge();
-      //#endif
+      #if ENABLED(POWER_LOSS_RECOVERY)   
+       recovery.purge();
+      #endif
       //queue.enqueue_now_P(PSTR("G91\nG1 Z10\nG90\nG28 X0 Y0"));
       //queue.inject_P(PSTR("G91\nG1 Z10\nG90\nG28 X0 Y0\nM84\nM107"));
     #endif
