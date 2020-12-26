@@ -53,6 +53,9 @@ removed, maybe in future I will bring them back
 * PSD file to export all custom images in one click (slices predefined, just edit and export in /custom_graphics/images)
 * Custom assets conversion (png -> bin) done automatically when build building firmware (need php installed)
 
+## Build notes 
+to build the firmware you need to have php installed, it's needed to convert png into assets.
+
 
 ## PSD preview
 

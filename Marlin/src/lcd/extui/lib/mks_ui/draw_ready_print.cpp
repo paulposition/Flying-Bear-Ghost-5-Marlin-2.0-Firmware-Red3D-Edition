@@ -39,6 +39,11 @@
 #include "../../../../module/temperature.h"
 #include "../../../../inc/MarlinConfig.h"
 
+#if ENABLED(TOUCH_SCREEN_CALIBRATION)
+  #include "../../../tft_io/touch_calibration.h"
+  #include "draw_touch_calibration.h"
+#endif
+
 #include <stdio.h>
 
 //static lv_obj_t *buttonPrint, *buttonTool, *buttonSet;
@@ -234,6 +239,14 @@ void lv_draw_ready_print(void) {
 
 
   }
+
+  #if ENABLED(TOUCH_SCREEN_CALIBRATION)
+    // If calibration is required, let's trigger it now, handles the case when there is default value in configuration files
+    if (!touch_calibration.calibration_loaded()) {
+      lv_clear_ready_print();
+      lv_draw_touch_calibration_screen();
+    }
+  #endif
 }
 
 
