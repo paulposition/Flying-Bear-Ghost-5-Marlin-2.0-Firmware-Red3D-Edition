@@ -95,7 +95,8 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
     case ID_TC_RETURN:
       TERN_(MKS_TEST, curent_disp_ui = 1);
       lv_clear_touch_calibration_screen();
-      draw_return_ui();
+      //draw_return_ui();
+      lv_draw_ready_print();
       break;
   }
 }

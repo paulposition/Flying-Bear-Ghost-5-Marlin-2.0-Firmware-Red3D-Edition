@@ -228,9 +228,7 @@ void tft_lvgl_init() {
   #endif
 
   if (ready) {
-    const bool need_cal = TERN0(TOUCH_SCREEN_CALIBRATION, touch_calibration.need_calibration());
-    TERN_(TOUCH_SCREEN_CALIBRATION, if (need_cal) lv_draw_touch_calibration_screen());
-    if (!need_cal) lv_draw_ready_print();
+    lv_draw_ready_print();
   }
 
   if (mks_test_flag == 0x1E)
