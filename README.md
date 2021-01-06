@@ -25,7 +25,7 @@ removed, maybe in future I will bring them back
 * Enabled square wave stepping (SQUARE_WAVE_STEPPING)
 * Disabled all Volumetric extrusion options
 * Changed PID standard Values and enabled PID  for the Bed  (Remember to calibrate yours)
-* BLTouch Disabled (But you can enable it, not tested yet)
+* BLTouch Disabled (But you can enable it)
 * Changed pre-heating presets to PETG (235/75) and  PLA (210/60) and added in tool/more... menu
 * Wifi is working with standard MksWifi.Bin (some troubles with file upload, still testing)
 * Enabled resume printing after power outage (partially tested)
